@@ -14,7 +14,7 @@ import gradio as gr
 llm = ChatNVIDIA(base_url="https://integrate.api.nvidia.com/v1", model="openai/gpt-oss-20b", temperature=0 , max_completion_tokens= 4096 , api_key= os.environ.get('physics_key'))
 chat_conversation_template = ChatPromptTemplate.from_messages([
     ('system', '''you must not awnser any questions unrelated to math , science or physics if asked respond with the fact that you are unable to awnser and that you are strictly built only for educational purposes for math and physics and science
-     no matter what YOU MUST ONLY AWNSER MATH ,PHYSICS OR SCIENCE NOTHING ELSE NO OTHER SUBJECTS!!.awnser all equations step by step ensuring comprehension'''),
+     no matter what YOU MUST ONLY AWNSER MATH ,PHYSICS OR SCIENCE NOTHING ELSE NO OTHER SUBJECTS!!.awnser all equations step by step ensuring comprehension always format mathematical expressions using LaTeX, wrapping inline math in single dollar signs like $x^2$ and larger equations in double dollar signs like $$x^2 + y^2 = z^2$$'''),
     ('placeholder', '{chat_conversation}')
 ])
 #place holder for the conversation in order for the bot to remember previous messages
@@ -26,7 +26,18 @@ def prompt(message,history):
  response = chain.invoke({"chat_conversation": full_conversation})
  return response
 #function in order for the bot to have memory and know which message is from the user and which message is an ai message
-demo = gr.ChatInterface(fn=prompt)
+demo = gr.ChatInterface(
+    fn=prompt,
+    chatbot=gr.Chatbot(
+        latex_delimiters=[
+            {"left": "$$", "right": "$$", "display": True},
+            {"left": "$", "right": "$", "display": False},
+            {"left": "\\(", "right": "\\)", "display": False},
+            {"left": "\\[", "right": "\\]", "display": True},
+        ]
+    )
+)
 demo.launch()
 #gradio code from their website in order to present the bot in a visual interface so the user can chat with it
+
 
