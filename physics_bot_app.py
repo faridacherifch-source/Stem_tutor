@@ -7,6 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1GAqOwTt_vpKAIKHq53SO_HfMrG7OGso6
 """
 import os
+import sources #import for hugging face
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from langchain_core.output_parsers import StrOutputParser
@@ -21,6 +22,7 @@ chat_conversation_template = ChatPromptTemplate.from_messages([
 #the ai's system message is how the ai will act and what rules it will follow
 chain = chat_conversation_template | llm | StrOutputParser()
 #a langchain to run the responses through llm and parser to get rid of unwanted meta data
+@spaces.GPU #also for hugging face 
 def prompt(message,history):
  full_conversation = history + [{"role": "user", "content": message}]
  response = chain.invoke({"chat_conversation": full_conversation})
@@ -36,7 +38,7 @@ demo = gr.ChatInterface(
             {"left": "\\[", "right": "\\]", "display": True},
         ]
     )
-)
+)#so the math symbols can be written in a proper format
 demo.launch()
 #gradio code from their website in order to present the bot in a visual interface so the user can chat with it
 
