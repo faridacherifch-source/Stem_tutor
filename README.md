@@ -5,4 +5,4 @@ this ai bot was made with the assistance of claude ai and a course in basic pyth
 bot was made using langchain on google collab
 open ai model imported from build nvidia
 model link:https://build.nvidia.com/openai/gpt-oss-20b
-try it live on hugging faces : 
+try it live on hugging faces : https://huggingface.co/spaces/faridacherif/Physics_AI_tutor_ChatBot
