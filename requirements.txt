@@ -1,0 +1,8 @@
+****Requirements to use the code****
+gradio
+langchain
+langchain-nvidia-ai-endpoints
+langchain-core
+
+#bot made in google collab 
+model used is openai/gpt-oss-20b
