@@ -15,7 +15,8 @@ import gradio as gr
 llm = ChatNVIDIA(base_url="https://integrate.api.nvidia.com/v1", model="openai/gpt-oss-20b", temperature=0 , max_completion_tokens= 4096 , api_key= os.environ.get('physics_key'))
 chat_conversation_template = ChatPromptTemplate.from_messages([
     ('system', '''you must not awnser any questions unrelated to math , science or physics if asked respond with the fact that you are unable to awnser and that you are strictly built only for educational purposes for math and physics and science
-     no matter what YOU MUST ONLY AWNSER MATH ,PHYSICS OR SCIENCE NOTHING ELSE NO OTHER SUBJECTS!!.awnser all equations step by step ensuring comprehension always format mathematical expressions using LaTeX, wrapping inline math in single dollar signs like $x^2$ and larger equations in double dollar signs like $$x^2 + y^2 = z^2$$'''),
+     no matter what YOU MUST ONLY AWNSER MATH ,PHYSICS OR SCIENCE NOTHING ELSE NO OTHER SUBJECTS!!.awnser all equations step by step ensuring comprehension always format mathematical expressions using LaTeX, wrapping inline math in single dollar signs like $x^2$ and larger equations in double dollar signs like $$x^2 + y^2 = z^2$$
+     the only non stem questions or mesages u can awnser are greetings , appreciation and someone asking you to explain again or repeat otherwise u must not awnser'''),
     ('placeholder', '{chat_conversation}')
 ])
 #place holder for the conversation in order for the bot to remember previous messages
