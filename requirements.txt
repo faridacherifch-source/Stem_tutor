@@ -1,8 +1,13 @@
 ****Requirements to use the code****
 gradio
+(!pip install gradio
+to install the gradio library)
 langchain
 langchain-nvidia-ai-endpoints
 langchain-core
-
+(!pip install langchain langchain-nvidia-ai-endpoints
+to install lanchain and ai endpoints)
+paste those into the begining of your code 
+dont forget to run them!!
 #bot made in google collab 
 model used is openai/gpt-oss-20b
