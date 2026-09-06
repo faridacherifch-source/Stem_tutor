@@ -6,3 +6,4 @@ bot was made using langchain on google collab
 open ai model imported from build nvidia
 model link:https://build.nvidia.com/openai/gpt-oss-20b
 try it live on hugging faces : https://huggingface.co/spaces/faridacherif/Physics_AI_tutor_ChatBot
+you can paste the code into google collab for a temporary link
