@@ -1,4 +1,4 @@
-# Physics_ai_tutor
+# Stem_tutor
 physics , math and science ai bot made on google collab and made with an open ai model only answers physics , and science questions
 the bot is designed for purely academic purposes in STEM
 this ai bot was made with the assistance of claude ai and a course in basic python and llm prompting 
